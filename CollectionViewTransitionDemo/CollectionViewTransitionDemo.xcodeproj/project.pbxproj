@@ -14,6 +14,16 @@
 		49A0B9921D405D33003B72B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A0B9901D405D33003B72B8 /* LaunchScreen.storyboard */; };
 		49A0B99D1D405D34003B72B8 /* CollectionViewTransitionDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B99C1D405D34003B72B8 /* CollectionViewTransitionDemoTests.swift */; };
 		49A0B9A81D405D34003B72B8 /* CollectionViewTransitionDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9A71D405D34003B72B8 /* CollectionViewTransitionDemoUITests.swift */; };
+		49A0B9B61D405DB6003B72B8 /* TLCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9B51D405DB6003B72B8 /* TLCollectionDataSource.swift */; };
+		49A0B9B71D405DB6003B72B8 /* TLCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9B51D405DB6003B72B8 /* TLCollectionDataSource.swift */; };
+		49A0B9BA1D405EF6003B72B8 /* TLContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9B91D405EF6003B72B8 /* TLContainerCell.swift */; };
+		49A0B9BB1D405EF6003B72B8 /* TLContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9B91D405EF6003B72B8 /* TLContainerCell.swift */; };
+		49A0B9BD1D405F26003B72B8 /* TLRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9BC1D405F26003B72B8 /* TLRootController.swift */; };
+		49A0B9BE1D405F26003B72B8 /* TLRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9BC1D405F26003B72B8 /* TLRootController.swift */; };
+		49A0B9C01D405F38003B72B8 /* TLDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9BF1D405F38003B72B8 /* TLDetailController.swift */; };
+		49A0B9C11D405F38003B72B8 /* TLDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9BF1D405F38003B72B8 /* TLDetailController.swift */; };
+		49A0B9C41D405F64003B72B8 /* TLLineToGridAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9C31D405F64003B72B8 /* TLLineToGridAnimator.swift */; };
+		49A0B9C51D405F64003B72B8 /* TLLineToGridAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0B9C31D405F64003B72B8 /* TLLineToGridAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,11 @@
 		49A0B9A31D405D34003B72B8 /* CollectionViewTransitionDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectionViewTransitionDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A0B9A71D405D34003B72B8 /* CollectionViewTransitionDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTransitionDemoUITests.swift; sourceTree = "<group>"; };
 		49A0B9A91D405D34003B72B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49A0B9B51D405DB6003B72B8 /* TLCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLCollectionDataSource.swift; sourceTree = "<group>"; };
+		49A0B9B91D405EF6003B72B8 /* TLContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLContainerCell.swift; sourceTree = "<group>"; };
+		49A0B9BC1D405F26003B72B8 /* TLRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLRootController.swift; sourceTree = "<group>"; };
+		49A0B9BF1D405F38003B72B8 /* TLDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLDetailController.swift; sourceTree = "<group>"; };
+		49A0B9C31D405F64003B72B8 /* TLLineToGridAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLLineToGridAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +112,17 @@
 		49A0B9861D405D33003B72B8 /* CollectionViewTransitionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				49A0B9C21D405F45003B72B8 /* Animators */,
+				49A0B9B81D405ED6003B72B8 /* View */,
 				49A0B9871D405D33003B72B8 /* AppDelegate.swift */,
 				49A0B9891D405D33003B72B8 /* ViewController.swift */,
 				49A0B98B1D405D33003B72B8 /* Main.storyboard */,
 				49A0B98E1D405D33003B72B8 /* Assets.xcassets */,
 				49A0B9901D405D33003B72B8 /* LaunchScreen.storyboard */,
 				49A0B9931D405D33003B72B8 /* Info.plist */,
+				49A0B9B51D405DB6003B72B8 /* TLCollectionDataSource.swift */,
+				49A0B9BC1D405F26003B72B8 /* TLRootController.swift */,
+				49A0B9BF1D405F38003B72B8 /* TLDetailController.swift */,
 			);
 			path = CollectionViewTransitionDemo;
 			sourceTree = "<group>";
@@ -123,6 +143,22 @@
 				49A0B9A91D405D34003B72B8 /* Info.plist */,
 			);
 			path = CollectionViewTransitionDemoUITests;
+			sourceTree = "<group>";
+		};
+		49A0B9B81D405ED6003B72B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49A0B9B91D405EF6003B72B8 /* TLContainerCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		49A0B9C21D405F45003B72B8 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				49A0B9C31D405F64003B72B8 /* TLLineToGridAnimator.swift */,
+			);
+			name = Animators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A0B98A1D405D33003B72B8 /* ViewController.swift in Sources */,
+				49A0B9BD1D405F26003B72B8 /* TLRootController.swift in Sources */,
+				49A0B9C41D405F64003B72B8 /* TLLineToGridAnimator.swift in Sources */,
+				49A0B9B61D405DB6003B72B8 /* TLCollectionDataSource.swift in Sources */,
 				49A0B9881D405D33003B72B8 /* AppDelegate.swift in Sources */,
+				49A0B9C01D405F38003B72B8 /* TLDetailController.swift in Sources */,
+				49A0B9BA1D405EF6003B72B8 /* TLContainerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +315,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49A0B9B71D405DB6003B72B8 /* TLCollectionDataSource.swift in Sources */,
+				49A0B9BE1D405F26003B72B8 /* TLRootController.swift in Sources */,
+				49A0B9C11D405F38003B72B8 /* TLDetailController.swift in Sources */,
+				49A0B9C51D405F64003B72B8 /* TLLineToGridAnimator.swift in Sources */,
+				49A0B9BB1D405EF6003B72B8 /* TLContainerCell.swift in Sources */,
 				49A0B99D1D405D34003B72B8 /* CollectionViewTransitionDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CollectionViewTransitionDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tongli.CollectionViewTransitionDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CollectionViewTransitionDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tongli.CollectionViewTransitionDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,6 +549,7 @@
 				49A0B9AE1D405D34003B72B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49A0B9AF1D405D34003B72B8 /* Build configuration list for PBXNativeTarget "CollectionViewTransitionDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +558,7 @@
 				49A0B9B11D405D34003B72B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49A0B9B21D405D34003B72B8 /* Build configuration list for PBXNativeTarget "CollectionViewTransitionDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +567,7 @@
 				49A0B9B41D405D34003B72B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
