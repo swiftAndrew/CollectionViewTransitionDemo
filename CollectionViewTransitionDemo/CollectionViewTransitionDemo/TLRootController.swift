@@ -12,10 +12,12 @@ let screen_width = UIScreen.main().bounds.width
 let screen_height = UIScreen.main().bounds.height
 
 
-private var ContainerCell = "ContainerCell"
+ var ContainerCell = "ContainerCell"
+
+private let HeaderIdentity = "headerId"
 
 class TLRootController: UIViewController,UINavigationControllerDelegate,
-UICollectionViewDelegate,UICollectionViewDataSource{
+UICollectionViewDelegate,UICollectionViewDataSource,TLContainerCellProtocol{
     
     var sourceCollectionView:UICollectionView!
     var dataSources:NSArray!
@@ -23,7 +25,7 @@ UICollectionViewDelegate,UICollectionViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white()
-        
+        self.title = "转场动画"
         self.navigationController?.delegate = self
         
         initView()
@@ -40,7 +42,7 @@ UICollectionViewDelegate,UICollectionViewDataSource{
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 1
         flowLayout.minimumInteritemSpacing = 1
-        flowLayout.itemSize = CGSize(width: smallwidth, height: smallwidth)
+        flowLayout.itemSize = CGSize(width: screen_width, height: smallwidth*3)
         flowLayout.headerReferenceSize = CGSize(width: screen_width, height: 30)
         
         sourceCollectionView = UICollectionView(frame: rect, collectionViewLayout: flowLayout)
@@ -50,6 +52,8 @@ UICollectionViewDelegate,UICollectionViewDataSource{
         sourceCollectionView.backgroundColor = UIColor.white()
         
         sourceCollectionView.register(TLContainerCell.self, forCellWithReuseIdentifier: ContainerCell)
+        
+        sourceCollectionView.register(HeadCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderIdentity)
     }
     
     func initData() -> Void {
@@ -66,17 +70,7 @@ UICollectionViewDelegate,UICollectionViewDataSource{
                             datasource4,datasource5,datasource6,datasource7]
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 
 }
 
@@ -92,21 +86,43 @@ extension TLRootController{
     }
     @objc(collectionView:cellForItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContainerCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContainerCell, for: indexPath) as? TLContainerCell
         
-        let childCollectionView = (cell as! TLContainerCell).collectionView
-        childCollectionView?.dataSource = self.dataSources[indexPath.section] as! TLCollectionDataSource
-        return cell
+      
+        
+        let childCollectionView = cell?.collectionView
+        
+        let tlDataSource = self.dataSources[indexPath.section] as! TLCollectionDataSource
+        childCollectionView?.dataSource = tlDataSource
+        
+        childCollectionView?.backgroundColor = UIColor.blue()
+        cell?.indexPath = indexPath
+        cell?.delegate = self
+        
+        return cell!
+    }
+    
+    @objc(collectionView:viewForSupplementaryElementOfKind:atIndexPath:) func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderIdentity, for: indexPath)
+        
+        (view as! HeadCollectionReusableView).titlelb.text = "Section\(indexPath.section)"
+        
+        return view
     }
     
     @objc(collectionView:didSelectItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let tlDataSource = self.dataSources[indexPath.section] as! TLCollectionDataSource
+        
         let dvc = TLDetailController()
-        dvc.dataSource = collectionView.dataSource
+        dvc.dataSource = tlDataSource
         self.sourceCollectionView = collectionView
         self.navigationController?.pushViewController(dvc, animated: true)
         
     }
+    
+    
     
     
     //MARK: - Navigation
@@ -126,6 +142,14 @@ extension TLRootController{
     }
     
     
+    
+    //MARK: - TLContainerCellProtocol 
+    func didCellClick(indexPath: IndexPath?) {
+        if(indexPath != nil){
+            self.collectionView(sourceCollectionView, didSelectItemAt: indexPath!)
+        }
+
+    }
     
     
 }

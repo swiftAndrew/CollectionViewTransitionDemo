@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-private let cellId = "ColorCell"
+ let cellId = "ColorCell"
 
 class TLCollectionDataSource: NSObject,UICollectionViewDataSource {
 
@@ -36,14 +35,12 @@ class TLCollectionDataSource: NSObject,UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        
-        cell.backgroundColor = self.color
-        
-        lb = UILabel(frame: CGRect(x: 10, y: 5, width: 100, height: 20))
-        lb.text = "\(indexPath.section) - \(indexPath.row)"
-        
-        return cell
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? DataSourceCell
+    
+        cell?.backgroundColor = self.color
+        cell?.lb.text = "\(indexPath.section) - \(indexPath.row)"
+        return cell!
         
     }
+    
 }

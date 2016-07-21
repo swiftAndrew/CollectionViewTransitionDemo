@@ -54,6 +54,7 @@ class TLLineToGridAnimator: NSObject,UIViewControllerAnimatedTransitioning {
         currentLayoutCopy.minimumLineSpacing = currentLayout.minimumLineSpacing
         currentLayoutCopy.minimumInteritemSpacing = currentLayout.minimumInteritemSpacing
         currentLayoutCopy.scrollDirection = currentLayout.scrollDirection
+        currentLayoutCopy.headerReferenceSize = currentLayout.headerReferenceSize
         
         self.fromCollectionView.setCollectionViewLayout(currentLayoutCopy, animated: true)
         

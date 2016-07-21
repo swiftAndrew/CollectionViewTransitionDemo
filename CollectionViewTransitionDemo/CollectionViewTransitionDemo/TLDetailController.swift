@@ -8,7 +8,6 @@
 
 import UIKit
 
-private var cellId = "cellid"
 
 class TLDetailController: UIViewController,UICollectionViewDelegate {
     
@@ -18,7 +17,7 @@ class TLDetailController: UIViewController,UICollectionViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.white()
         initView()
     }
     
@@ -27,19 +26,20 @@ class TLDetailController: UIViewController,UICollectionViewDelegate {
         let rect = CGRect(x: 0, y: 0, width: screen_width, height: screen_height)
         
         
-        let smallwidth:CGFloat = (screen_width-5)/6
+        let smallwidth:CGFloat = (screen_width-2)/2
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 1
         flowLayout.minimumInteritemSpacing = 1
         flowLayout.itemSize = CGSize(width: smallwidth, height: smallwidth)
-        flowLayout.headerReferenceSize = CGSize(width: screen_width, height: 30)
         
         collectionView = UICollectionView(frame: rect, collectionViewLayout: flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = dataSource
         self.view.addSubview(collectionView)
         
-        collectionView.register(TLContainerCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.backgroundColor = UIColor.white()
+        
+        collectionView.register(DataSourceCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     
